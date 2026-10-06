@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>McLaren P1™ — The Sculptural Hypercar</title>
+
+  <!-- Anti-flicker theme restoration before initial paint -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('mclaren_theme');
+        if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      } catch (e) { }
+    })();
+  </script>
+  <!-- High-End Swiss Grotesque Modern Typography (Zero Monospace) -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Inter:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            noir: {
+              DEFAULT: '#080809',
+              50: '#141417',
+              100: '#111113',
+              200: '#0d0d0f'
+            },
+            papaya: {
+              DEFAULT: '#FF7700',
+              glow: 'rgba(255, 119, 0, 0.4)',
+              muted: '#7a3900'
+            },
+            silver: {
+              100: '#F5F5F7',
+              200: '#E5E5EA',
+              300: '#D1D1D6',
+              400: '#8E8E93',
+              500: '#636366',
+              600: '#48484A',
+              700: '#2C2C2E',
+              800: '#1C1C1E'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'sans-serif'],
+            mono: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'sans-serif'],
+            editorial: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif']
+          },
+          letterSpacing: {
+            'widest-lux': '0.22em',
+            'tight-lux': '-0.04em'
+          }
+        }
+      }
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-BFGON5vc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-UXHZD7Sr.css">
+</head>
+
+<body class="selection:bg-papaya selection:text-black bg-[#080809] text-[#E5E5EA] font-sans">
+
+  <!-- Car Entrance Audio Element (Multi-path fallback: Root, Audio dir, Public dir) -->
+  <audio id="car-entrance-audio" preload="auto" playsinline>
+    <source src="/assets/car-entrance-C6rM_LaF.mp3" type="audio/mpeg">
+    <source src="/assets/car-entrance-C6rM_LaF.mp3" type="audio/mpeg">
+    <source src="/assets/car-entrance-C6rM_LaF.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Fixed Translucent Top Navigation Bar (Mobile & Desktop) -->
+  <header id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 sm:py-5 px-4 sm:px-8 lg:px-12 pointer-events-auto transparent-nav">
+    <div class="max-w-[1720px] mx-auto flex items-center justify-between">
+
+      <!-- Brand Logo Left -->
+      <a href="#hero" class="flex items-center gap-2.5 sm:gap-3.5 group">
+        <svg viewBox="0 0 54 20" width="34" height="13"
+          class="sm:w-[40px] sm:h-[15px] filter drop-shadow-[0_0_10px_rgba(255,119,0,0.7)] transition-transform duration-300 group-hover:scale-105"
+          aria-label="McLaren Logo">
+          <path d="M2 16 C 16 16, 42 12, 52 3 C 38 8, 20 10, 2 16 Z" fill="#FF7700" />
+        </svg>
+        <span
+          class="font-sans font-bold text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] text-white uppercase whitespace-nowrap">McLaren
+          <span class="text-papaya font-black">P1™</span></span>
+      </a>
+
+      <!-- Horizontal Links Center (Desktop) -->
+      <nav
+        class="hidden md:flex items-center gap-6 lg:gap-11 font-sans text-xs uppercase tracking-[0.22em] font-semibold text-silver-300">
+        <a href="#chapter-1" class="nav-link hover:text-white transition-colors py-1">I. Form</a>
+        <a href="#chapter-2" class="nav-link hover:text-white transition-colors py-1">II. Powertrain</a>
+        <a href="#chapter-3" class="nav-link hover:text-white transition-colors py-1">III. Architecture</a>
+        <a href="#chapter-4" class="nav-link hover:text-white transition-colors py-1">IV. MSO Archive</a>
+      </nav>
+
+      <!-- Action & Mobile Toggle Right -->
+      <div class="flex items-center gap-2 sm:gap-3.5">
+
+        <!-- Dark / Light Theme Toggle Button -->
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle Dark / Light Mode"
+          title="Toggle Dark / Light Mode"
+          class="theme-toggle-btn flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 border border-white/15 rounded-sm bg-white/[0.04] text-white hover:text-papaya hover:border-papaya/40 transition-all duration-300 group">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="theme-icon-sun" class="w-4 h-4 text-silver-300 group-hover:text-papaya transition-colors" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" stroke-width="2" />
+            <path stroke-linecap="round" stroke-width="2"
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="theme-icon-moon" class="w-4 h-4 text-gray-800 group-hover:text-papaya transition-colors hidden"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- Audio Stop / Mute Control (Default: Sound ON) -->
+        <button id="sound-control-btn" type="button" aria-label="Mute Audio" title="Sound: ON (Click to Stop/Mute)"
+          class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 border border-white/15 rounded-sm bg-white/[0.04] text-white hover:text-papaya hover:border-papaya/40 transition-all duration-300 group">
+          <!-- Sound ON Icon (Default state) -->
+          <svg id="sound-icon-on" class="w-4 h-4 text-silver-300 group-hover:text-papaya transition-colors" fill="none"
+            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke-linecap="round" stroke-linejoin="round" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+          <!-- Sound MUTED / STOPPED Icon -->
+          <svg id="sound-icon-off" class="w-4 h-4 text-silver-500 group-hover:text-papaya transition-colors hidden" fill="none"
+            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke-linecap="round" stroke-linejoin="round" />
+            <line x1="22" y1="9" x2="16" y2="15" stroke-linecap="round" />
+            <line x1="16" y1="9" x2="22" y2="15" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <a href="#chapter-4"
+          class="inquire-btn hidden sm:inline-block font-sans text-[11px] sm:text-xs uppercase tracking-[0.2em] font-semibold text-white px-3.5 sm:px-5 py-2 sm:py-2.5 border border-white/20 hover:border-papaya hover:text-papaya hover:bg-papaya/10 transition-all duration-300 rounded-sm whitespace-nowrap">
+          Inquire [01–375]
+        </a>
+
+        <!-- Mobile Menu Toggle Button (Touch-optimized 44px) -->
+        <button id="mobile-menu-btn" type="button" aria-label="Toggle Navigation Menu" aria-expanded="false"
+          class="md:hidden flex flex-col justify-center items-center w-9 h-9 sm:w-10 sm:h-10 border border-white/15 rounded-sm bg-white/[0.04] text-white hover:text-papaya hover:border-papaya/40 transition-colors p-2 sm:p-2.5">
+          <span class="carbon-bar-top block w-4 h-0.5 bg-current rounded-full mb-1"></span>
+          <span class="carbon-bar-bottom block w-4 h-0.5 bg-current rounded-full"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Translucent Navigation Drawer -->
+    <div id="mobile-menu"
+      class="md:hidden absolute top-full left-0 right-0 bg-[#080809]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl overflow-hidden">
+      <div
+        class="px-6 py-6 flex flex-col gap-1 font-sans text-xs uppercase tracking-[0.22em] font-semibold text-silver-300">
+        <a href="#chapter-1"
+          class="mobile-nav-link py-3 border-b border-white/5 hover:text-white transition-colors flex items-center justify-between">
+          <span>I. Form Follows Function</span>
+          <span class="text-[10px] text-silver-500">01</span>
+        </a>
+        <a href="#chapter-2"
+          class="mobile-nav-link py-3 border-b border-white/5 hover:text-white transition-colors flex items-center justify-between">
+          <span>II. Powertrain &amp; IPAS</span>
+          <span class="text-[10px] text-silver-500">02</span>
+        </a>
+        <a href="#chapter-3"
+          class="mobile-nav-link py-3 border-b border-white/5 hover:text-white transition-colors flex items-center justify-between">
+          <span>III. Monocage Architecture</span>
+          <span class="text-[10px] text-silver-500">03</span>
+        </a>
+        <a href="#chapter-4"
+          class="mobile-nav-link py-3 border-b border-white/5 hover:text-white transition-colors flex items-center justify-between">
+          <span>IV. Bespoke MSO Archive</span>
+          <span class="text-[10px] text-silver-500">04</span>
+        </a>
+
+        <!-- Mobile Theme Switcher Row -->
+        <div class="flex items-center justify-between py-3 border-b border-white/5">
+          <span class="text-[11px] tracking-[0.2em] uppercase font-semibold text-silver-400">Atelier Mode</span>
+          <button id="mobile-theme-toggle-btn" type="button"
+            class="flex items-center gap-2 px-3 py-1.5 border border-white/15 rounded-sm text-[10px] tracking-[0.18em] uppercase font-bold text-white hover:text-papaya hover:border-papaya transition-colors">
+            <span id="mobile-theme-label">Dark Noir</span>
+            <span class="text-papaya">☀️/🌙</span>
+          </button>
+        </div>
+
+        <div class="pt-4 pb-2">
+          <a href="#chapter-4"
+            class="mobile-nav-link block text-center font-sans text-xs uppercase tracking-[0.2em] font-bold text-black bg-papaya hover:bg-[#ff8a1f] px-5 py-3 rounded-sm transition-all shadow-[0_0_20px_rgba(255,119,0,0.3)]">
+            Inquire Allocation [01–375]
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Under-Webpage Background Canvas (Reacts to Cursor) -->
+  <canvas id="bg-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <main class="w-full relative z-10">
+
+    <!-- ==================== PURE VIDEO HERO SECTION ==================== -->
+    <section id="hero" class="relative w-screen h-screen bg-[#060709] overflow-hidden flex items-center justify-center">
+      <canvas id="hero-canvas" class="w-full h-full block cursor-default"></canvas>
+
+      <!-- Headlight Burst FX -->
+      <div id="headlight-burst"></div>
+
+      <!-- Minimal Scroll Down Cue -->
+      <div id="scroll-hint"
+        class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none text-silver-400 font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] transition-opacity duration-500 font-medium">
+        <span>Scroll to Explore</span>
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-bounce text-papaya" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER I: FORM FOLLOWS FUNCTION ==================== -->
+    <section class="py-32 hairline-t px-6 sm:px-12 max-w-[1720px] mx-auto font-sans" id="chapter-1">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <!-- Chapter Index Sticky Column -->
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-papaya tracking-[0.2em] uppercase block mb-3">Chapter I</span>
+            <h2
+              class="font-editorial text-3xl sm:text-5xl font-light text-white uppercase tracking-tight-lux leading-tight">
+              Form Follows <br /><span class="font-semibold text-silver-200">Function</span>
+            </h2>
+            <div class="w-12 h-px bg-papaya mt-6 mb-8"></div>
+            <p class="text-sm text-silver-400 leading-relaxed font-light max-w-sm">
+              The bodywork of the McLaren P1 was not styled in an art studio—it was sculpted by airflow in Woking's
+              rolling-road wind tunnel. Panels are shrink-wrapped to the mechanical core, yielding visceral organic
+              forms.
+            </p>
+          </div>
+          <div class="hidden lg:block text-xs font-medium text-silver-500 uppercase tracking-[0.18em]">
+            Ref: Aero-Surface / 5-Piece Shrink-Wrap Body
+          </div>
+        </div>
+
+        <!-- Curated Editorial Narrative Columns -->
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div class="flex flex-col justify-between space-y-8">
+            <div class="space-y-4">
+              <span class="text-xs font-semibold text-silver-400 uppercase tracking-[0.18em] block">01 / Organic Airflow
+                Channels</span>
+              <h3 class="font-editorial text-xl font-medium text-white">Shrink-Wrapped Carbon Surfacing</h3>
+              <p class="text-xs sm:text-sm text-silver-400 leading-relaxed font-light">
+                Every curve, duct, and radiator scoop has an aerodynamic purpose. Air is scooped clean from the nose,
+                funneled over the front fenders, swept through the door cuts to feed the twin charge-air coolers, and
+                discharged past the razor-thin LED rear blades.
+              </p>
+            </div>
+            <div class="p-6 bg-noir-100 hairline-b border border-white/5 space-y-2">
+              <span class="text-xs font-medium text-papaya uppercase tracking-wider block">Fluid Dynamic Metric</span>
+              <div class="flex items-baseline justify-between">
+                <span class="text-sm text-white font-medium">Body Paneling Count</span>
+                <span class="text-xs font-semibold text-silver-300">5 Carbon Shells Total</span>
+              </div>
+              <p class="text-xs text-silver-500">Minimizing panel gaps and drag turbulence across high-speed runs.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-between space-y-8">
+            <div class="space-y-4">
+              <span class="text-xs font-semibold text-silver-400 uppercase tracking-[0.18em] block">02 / Dynamic
+                Downforce</span>
+              <h3 class="font-editorial text-xl font-medium text-white">Active Aerofoil &amp; DRS</h3>
+              <p class="text-xs sm:text-sm text-silver-400 leading-relaxed font-light">
+                The rear wing extends up to 300mm on track, adjusting its angle of attack dynamically. Integrated
+                Formula 1 DRS decreases drag by 23% at straight-line throttle, while pitch-braking applies up to 29° of
+                reverse resistance under heavy deceleration.
+              </p>
+            </div>
+            <div class="p-6 bg-noir-100 hairline-b border border-white/5 space-y-2">
+              <span class="text-xs font-medium text-silver-300 uppercase tracking-wider block">Airbrake Reaction</span>
+              <div class="flex items-baseline justify-between">
+                <span class="text-sm text-white font-medium">Pitch Transition Time</span>
+                <span class="text-xs font-semibold text-white">&lt; 0.5 Seconds</span>
+              </div>
+              <p class="text-xs text-silver-500">Hydraulic dual actuators operating with instant response under
+                threshold braking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER II: DUAL HEARTS ==================== -->
+    <section class="py-32 hairline-t px-6 sm:px-12 max-w-[1720px] mx-auto bg-noir-200/50 font-sans" id="chapter-2">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <!-- Chapter Index Sticky Column -->
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-papaya tracking-[0.2em] uppercase block mb-3">Chapter II</span>
+            <h2
+              class="font-editorial text-3xl sm:text-5xl font-light text-white uppercase tracking-tight-lux leading-tight">
+              Dual <br /><span class="font-semibold text-silver-200">Hearts</span>
+            </h2>
+            <div class="w-12 h-px bg-papaya mt-6 mb-8"></div>
+            <p class="text-sm text-silver-400 leading-relaxed font-light max-w-sm">
+              A radical hybrid philosophy: electric power is not employed for environmental compromise, but as
+              instantaneous torque fill to eliminate turbo lag, marrying raw twin-turbo fury with linear throttle
+              response.
+            </p>
+          </div>
+          <div class="text-xs font-medium text-silver-500 uppercase tracking-[0.18em]">
+            IPAS: Instant Power Assist System
+          </div>
+        </div>
+
+        <!-- Propulsion Architectural Split -->
+        <div class="lg:col-span-8 space-y-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- ICE Component -->
+            <div class="p-8 border border-white/[0.06] bg-noir space-y-6">
+              <div class="flex justify-between items-center pb-4 hairline-b">
+                <span class="text-xs font-semibold text-papaya uppercase tracking-[0.18em]">Combustion Heart</span>
+                <span class="text-xs font-medium text-silver-400">7,500 RPM</span>
+              </div>
+              <h3 class="font-editorial text-2xl font-light text-white">3.8L Twin-Turbo V8 <span
+                  class="text-xs text-silver-400 font-medium block mt-1">M838TQ Engine</span></h3>
+              <p class="text-xs sm:text-sm text-silver-400 leading-relaxed font-light">
+                Bespoke dry-sump cast-aluminum block developed exclusively for the P1. High-pressure turbochargers
+                generating 2.4 bar of absolute boost with Inconel exhaust manifolds that glow cherry-red under track
+                duress.
+              </p>
+              <div class="pt-4 hairline-t flex justify-between text-xs">
+                <span class="text-silver-500 uppercase tracking-wider font-medium">Output</span>
+                <span class="text-white font-semibold">737 PS · 720 Nm</span>
+              </div>
+            </div>
+
+            <!-- E-Motor Component -->
+            <div class="p-8 border border-white/[0.06] bg-noir space-y-6">
+              <div class="flex justify-between items-center pb-4 hairline-b">
+                <span class="text-xs font-semibold text-silver-300 uppercase tracking-[0.18em]">Electric Heart</span>
+                <span class="text-xs font-medium text-silver-400">0 RPM Instant Torque</span>
+              </div>
+              <h3 class="font-editorial text-2xl font-light text-white">Permanent Magnet <span
+                  class="text-xs text-silver-400 font-medium block mt-1">Synchronous E-Motor</span></h3>
+              <p class="text-xs sm:text-sm text-silver-400 leading-relaxed font-light">
+                Weighing just 26 kg, this high-power density electric motor is integrated straight into the 7-speed
+                dual-clutch transmission. It provides immediate torque fill during gear changes and spool lag.
+              </p>
+              <div class="pt-4 hairline-t flex justify-between text-xs">
+                <span class="text-silver-500 uppercase tracking-wider font-medium">Electric Boost</span>
+                <span class="text-papaya font-semibold">179 PS · 260 Nm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Combined Summation Ribbon -->
+          <div
+            class="p-8 border border-white/[0.08] bg-noir flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="space-y-1">
+              <span class="text-xs text-silver-500 uppercase tracking-[0.18em] font-medium">Combined System
+                Output</span>
+              <div class="font-editorial text-4xl sm:text-5xl font-light text-white">
+                916 <span class="text-papaya font-semibold">PS</span> <span
+                  class="text-xl text-silver-400 font-normal">/ 900 NM TORQUE</span>
+              </div>
+            </div>
+            <div class="text-xs text-silver-400 max-w-xs leading-relaxed text-left md:text-right font-light">
+              Zero throttle latency achieved through active electrical torque supplementation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER III: ARCHITECTURE ==================== -->
+    <section class="py-32 hairline-t px-6 sm:px-12 max-w-[1720px] mx-auto font-sans" id="chapter-3">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <!-- Chapter Index Sticky Column -->
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-papaya tracking-[0.2em] uppercase block mb-3">Chapter III</span>
+            <h2
+              class="font-editorial text-3xl sm:text-5xl font-light text-white uppercase tracking-tight-lux leading-tight">
+              MonoCage <br /><span class="font-semibold text-silver-200">Architecture</span>
+            </h2>
+            <div class="w-12 h-px bg-papaya mt-6 mb-8"></div>
+            <p class="text-sm text-silver-400 leading-relaxed font-light max-w-sm">
+              Formula 1 chassis DNA distilled into a road-car passenger cell. The MonoCage weighs merely 90 kg yet
+              integrates the roof snorkel, upper passenger cabin, battery protective casing, and primary rollover hoop.
+            </p>
+          </div>
+          <div class="text-xs font-medium text-silver-500 uppercase tracking-[0.18em]">
+            T1000 High-Modulus Carbon Composites
+          </div>
+        </div>
+
+        <!-- Architectural Schematic & Specs -->
+        <div class="lg:col-span-8 space-y-10">
+          <!-- Schematic Matrix Table -->
+          <div class="hairline-b border-t border-white/[0.08] divide-y divide-white/[0.06] text-xs">
+            <div class="py-5 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <span class="text-silver-500 uppercase tracking-[0.18em] text-xs font-medium">Carbon Tub Mass</span>
+              <div class="flex items-center gap-4">
+                <span class="text-white font-medium text-sm">90 Kilograms</span>
+                <span class="text-silver-400 text-xs">Formula 1 Standard Spec</span>
+              </div>
+            </div>
+            <div class="py-5 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <span class="text-silver-500 uppercase tracking-[0.18em] text-xs font-medium">Torsional Rigidity</span>
+              <div class="flex items-center gap-4">
+                <span class="text-white font-medium text-sm">5,000 Nm / Degree</span>
+                <span class="text-silver-400 text-xs">Eliminating Secondary Sub-Frames</span>
+              </div>
+            </div>
+            <div class="py-5 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <span class="text-silver-500 uppercase tracking-[0.18em] text-xs font-medium">RaceActive Chassis
+                Control</span>
+              <div class="flex items-center gap-4">
+                <span class="text-white font-medium text-sm">-50mm Ride Drop in Race Mode</span>
+                <span class="text-silver-400 text-xs">Hydropneumatic Ground Effect</span>
+              </div>
+            </div>
+            <div class="py-5 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <span class="text-silver-500 uppercase tracking-[0.18em] text-xs font-medium">Braking System</span>
+              <div class="flex items-center gap-4">
+                <span class="text-papaya font-semibold text-sm">Akebono Silicon Carbide Ceramic</span>
+                <span class="text-silver-400 text-xs">100-0 km/h in 30.2 Meters</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engineering Quote -->
+          <div class="p-8 border-l-2 border-papaya bg-noir-100 space-y-3">
+            <p class="font-editorial text-lg text-silver-200 italic font-light leading-relaxed">
+              "We did not seek top speed records at the expense of handling. We designed the P1 to be the most engaging,
+              responsive, and dynamic driver’s car ever created."
+            </p>
+            <span class="text-xs text-silver-400 uppercase tracking-[0.18em] block font-medium">
+              — McLaren Automotive Engineering Manifesto, Woking
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER IV: BESPOKE MSO ARCHIVE ==================== -->
+    <section class="py-32 hairline-t px-6 sm:px-12 max-w-[1720px] mx-auto font-sans" id="chapter-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <!-- Chapter Index Sticky Column -->
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-papaya tracking-[0.2em] uppercase block mb-3">Chapter IV</span>
+            <h2
+              class="font-editorial text-3xl sm:text-5xl font-light text-white uppercase tracking-tight-lux leading-tight">
+              Bespoke <br /><span class="font-semibold text-silver-200">MSO Archive</span>
+            </h2>
+            <div class="w-12 h-px bg-papaya mt-6 mb-8"></div>
+            <p class="text-sm text-silver-400 leading-relaxed font-light max-w-sm">
+              Strictly limited to 375 chassis worldwide. Each example was commissioned in direct collaboration with
+              McLaren Special Operations, resulting in zero identical builds across the global registry.
+            </p>
+          </div>
+          <div class="text-xs font-medium text-silver-500 uppercase tracking-[0.18em]">
+            Chassis Homologation 001–375
+          </div>
+        </div>
+
+        <!-- Atelier Inquiry & Registry Interface -->
+        <div class="lg:col-span-8 flex flex-col justify-between space-y-12">
+          <div class="space-y-6">
+            <h3 class="font-editorial text-2xl font-light text-white">Chassis Registry &amp; Trackside Heritage Support
+            </h3>
+            <p class="text-sm text-silver-400 leading-relaxed font-light max-w-2xl">
+              Whether inquiring into the historical build provenance of an existing chassis, scheduling factory
+              restoration at the McLaren Technology Centre, or accessing telemetry records from the Nürburgring
+              Nordschleife development campaign, our heritage team remains at your disposal.
+            </p>
+          </div>
+
+          <!-- Precision Inquiry Action Block -->
+          <div
+            class="p-8 sm:p-12 border border-white/10 bg-noir-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+            <div class="space-y-2">
+              <span class="text-xs font-semibold text-papaya uppercase tracking-[0.18em]">Client Commission
+                Liaison</span>
+              <div class="font-editorial text-2xl text-white font-medium">McLaren Special Operations</div>
+              <p class="text-xs text-silver-400">Woking, Surrey, United Kingdom</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <button
+                class="px-8 py-3.5 bg-white text-black text-xs font-semibold uppercase tracking-[0.2em] hover:bg-papaya transition-colors duration-200 text-center"
+                onclick="alert('Connecting to McLaren Special Operations Chassis Registry...')">
+                Access Registry
+              </button>
+              <button
+                class="px-8 py-3.5 border border-white/20 text-white text-xs font-semibold uppercase tracking-[0.2em] hover:border-white transition-colors duration-200 text-center"
+                onclick="alert('Chassis Heritage Documentation Request Logged.')">
+                Verify VIN
+              </button>
+            </div>
+          </div>
+
+          <!-- Atelier Footnote -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-silver-400 pt-6 hairline-t">
+            <div>
+              <span class="text-silver-300 block text-xs uppercase mb-1 font-semibold">Production Run</span>
+              Strictly 375 vehicles produced
+            </div>
+            <div>
+              <span class="text-silver-300 block text-xs uppercase mb-1 font-semibold">Assembly Location</span>
+              McLaren Production Centre (MPC)
+            </div>
+            <div>
+              <span class="text-silver-300 block text-xs uppercase mb-1 font-semibold">Circuit Support</span>
+              Pure McLaren GT &amp; Track Liaison
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== PROPER LUXURY ATELIER FOOTER ==================== -->
+  <footer class="w-full hairline-t bg-[#050506] text-silver-400 pt-20 pb-12 px-6 sm:px-12 font-sans">
+    <div class="max-w-[1720px] mx-auto">
+
+      <!-- Top Brand Statement & Atelier Newsletter -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 hairline-b">
+        <div class="lg:col-span-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <svg viewBox="0 0 50 18" width="42" height="15" aria-hidden="true">
+              <path d="M2 15 C 15 15, 38 12, 48 2 C 36 7, 18 9, 2 15 Z" fill="#FF7700" />
+            </svg>
+            <span class="font-sans font-bold text-lg tracking-[0.25em] text-white uppercase">McLaren Automotive</span>
+          </div>
+          <p class="text-sm text-silver-400 font-light leading-relaxed max-w-lg">
+            Engineered and hand-assembled at the McLaren Production Centre in Woking, England. The McLaren P1 represents
+            the definitive convergence of Formula 1 aerodynamic science and hybrid hypercar performance.
+          </p>
+          <div class="flex items-center gap-6 pt-2 text-xs text-silver-500 font-medium">
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-papaya"></span>
+              Woking, Surrey, UK
+            </span>
+            <span>•</span>
+            <span>Chassis Homologation 001–375</span>
+            <span>•</span>
+            <span>51°20'44"N 0°32'48"W</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 flex flex-col justify-end space-y-3">
+          <span class="text-xs uppercase tracking-[0.2em] font-semibold text-white">MSO Atelier Dispatch</span>
+          <p class="text-xs text-silver-400 font-light">
+            Receive private releases on McLaren Ultimate Series heritage, technical bulletins, and factory restoration
+            archives.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <input type="email" placeholder="Enter private client email"
+              class="bg-noir-100 border border-white/10 px-4 py-3 text-xs text-white placeholder-silver-500 focus:outline-none focus:border-papaya flex-1 transition-colors">
+            <button
+              class="px-6 py-3 bg-white text-black text-xs font-semibold uppercase tracking-[0.2em] hover:bg-papaya hover:text-black transition-colors whitespace-nowrap"
+              onclick="alert('Client inquiry logged. McLaren Special Operations liaison will reach out.')">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Multi-Column Atelier Navigation Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 py-16 hairline-b text-xs">
+
+        <!-- Column 1: Vehicle Architecture -->
+        <div class="space-y-4">
+          <span class="text-xs font-semibold text-white uppercase tracking-[0.2em] block">Architecture</span>
+          <ul class="space-y-2.5 text-silver-400">
+            <li><a href="#chapter-1" class="hover:text-papaya transition-colors">Aero-Surface Body</a></li>
+            <li><a href="#chapter-1" class="hover:text-papaya transition-colors">Active Aerofoil &amp; DRS</a></li>
+            <li><a href="#chapter-3" class="hover:text-papaya transition-colors">Carbon MonoCage Tub</a></li>
+            <li><a href="#chapter-3" class="hover:text-papaya transition-colors">RaceActive Chassis Control</a></li>
+            <li><a href="#chapter-3" class="hover:text-papaya transition-colors">Akebono Ceramic Braking</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Dual Powertrain -->
+        <div class="space-y-4">
+          <span class="text-xs font-semibold text-white uppercase tracking-[0.2em] block">Propulsion</span>
+          <ul class="space-y-2.5 text-silver-400">
+            <li><a href="#chapter-2" class="hover:text-papaya transition-colors">3.8L Twin-Turbo V8 M838TQ</a></li>
+            <li><a href="#chapter-2" class="hover:text-papaya transition-colors">Permanent Magnet E-Motor</a></li>
+            <li><a href="#chapter-2" class="hover:text-papaya transition-colors">IPAS Instant Boost System</a></li>
+            <li><a href="#chapter-2" class="hover:text-papaya transition-colors">7-Speed Dual-Clutch (SSG)</a></li>
+            <li><a href="#chapter-2" class="hover:text-papaya transition-colors">916 PS Combined Output</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: MSO & Heritage -->
+        <div class="space-y-4">
+          <span class="text-xs font-semibold text-white uppercase tracking-[0.2em] block">Bespoke Atelier</span>
+          <ul class="space-y-2.5 text-silver-400">
+            <li><a href="#chapter-4" class="hover:text-papaya transition-colors">McLaren Special Operations</a></li>
+            <li><a href="#chapter-4" class="hover:text-papaya transition-colors">Global Registry 001–375</a></li>
+            <li><a href="#chapter-4" class="hover:text-papaya transition-colors">MPC Factory Restoration</a></li>
+            <li><a href="#chapter-4" class="hover:text-papaya transition-colors">Certificate of Authenticity</a></li>
+            <li><a href="#chapter-4" class="hover:text-papaya transition-colors">Pure McLaren Track Programme</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Racing Provenance -->
+        <div class="space-y-4">
+          <span class="text-xs font-semibold text-white uppercase tracking-[0.2em] block">Heritage DNA</span>
+          <ul class="space-y-2.5 text-silver-400">
+            <li><a href="#hero" class="hover:text-papaya transition-colors">1995 24h of Le Mans Victory</a></li>
+            <li><a href="#hero" class="hover:text-papaya transition-colors">Formula 1 IPAS &amp; DRS Origins</a></li>
+            <li><a href="#hero" class="hover:text-papaya transition-colors">Nürburgring Sub-7 Min Campaign</a></li>
+            <li><a href="#hero" class="hover:text-papaya transition-colors">McLaren F1 Legacy Link</a></li>
+            <li><a href="#hero" class="hover:text-papaya transition-colors">Bruce McLaren Motor Racing</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Key Specifications Pill Box -->
+        <div class="col-span-2 md:col-span-4 lg:col-span-1 p-5 bg-noir-100 border border-white/5 space-y-3">
+          <span class="text-[11px] font-semibold text-papaya uppercase tracking-[0.18em] block">Benchmark Metric</span>
+          <div class="space-y-2">
+            <div class="flex justify-between items-baseline">
+              <span class="text-silver-500 text-[11px]">0–100 km/h</span>
+              <span class="text-white font-semibold text-xs">2.8 Seconds</span>
+            </div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-silver-500 text-[11px]">0–200 km/h</span>
+              <span class="text-white font-semibold text-xs">6.8 Seconds</span>
+            </div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-silver-500 text-[11px]">Top Velocity</span>
+              <span class="text-white font-semibold text-xs">350 km/h</span>
+            </div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-silver-500 text-[11px]">Downforce</span>
+              <span class="text-papaya font-semibold text-xs">600 kg</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Atelier Metadata, Legal & Return to Apex -->
+      <div
+        class="pt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-xs text-silver-500">
+
+        <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs">
+          <span class="text-silver-400 font-medium">© 2026 McLaren Automotive Limited.</span>
+          <span class="hidden sm:inline">•</span>
+          <a href="#" class="hover:text-silver-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-silver-300 transition-colors">Legal Terms</a>
+          <a href="#" class="hover:text-silver-300 transition-colors">Cookie Preferences</a>
+          <a href="#" class="hover:text-silver-300 transition-colors">Modern Slavery Statement</a>
+        </div>
+
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="flex items-center gap-2 text-xs font-semibold text-white uppercase tracking-[0.2em] hover:text-papaya transition-colors group">
+          <span>Return to Apex</span>
+          <svg class="w-4 h-4 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

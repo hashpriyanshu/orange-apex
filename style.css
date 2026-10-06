@@ -1,0 +1,408 @@
+/* ==========================================================================
+   McLAREN P1™ // ATELIER ARCHIVE & PURE VIDEO HERO
+   ========================================================================== */
+
+:root {
+  --color-noir: #080809;
+  --color-papaya: #FF7700;
+  --color-papaya-glow: rgba(255, 119, 0, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: #080809;
+  color: #E5E5EA;
+  font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Translucent Floating Top Navigation Bar */
+.transparent-nav {
+  background-color: rgba(8, 8, 9, 0.42) !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.transparent-nav.scrolled {
+  background-color: rgba(8, 8, 9, 0.82) !important;
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #FF7700;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px rgba(255, 119, 0, 0.7);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #ffffff;
+}
+
+/* Fullscreen Hero Video */
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #060709;
+}
+
+#hero-canvas {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: block;
+  object-fit: cover;
+}
+
+/* Volumetric Dual-Beam Headlight Illumination System */
+#headlight-burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle var(--hl-radius, 80px) at var(--hl-x1, 38%) var(--hl-y, 62%), rgba(240, 248, 255, 0.5) 0%, rgba(147, 197, 253, 0.18) 30%, transparent 65%),
+    radial-gradient(circle var(--hl-radius, 80px) at var(--hl-x2, 62%) var(--hl-y, 62%), rgba(240, 248, 255, 0.5) 0%, rgba(147, 197, 253, 0.18) 30%, transparent 65%),
+    radial-gradient(ellipse 95% 8% at 50% var(--hl-y, 62%), rgba(224, 242, 254, 0.35) 0%, rgba(96, 165, 250, 0.12) 40%, transparent 75%);
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 0.5s ease-out;
+}
+
+#headlight-burst.active-headlights {
+  opacity: 0.95 !important;
+  animation: headlightGlow 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes headlightGlow {
+  0% {
+    opacity: 0.88;
+    filter: drop-shadow(0 0 25px rgba(186, 230, 253, 0.5));
+  }
+
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 40px rgba(224, 242, 254, 0.75));
+  }
+}
+
+/* Mobile Navigation Bar & Translucent Drawer */
+#mobile-menu-btn .carbon-bar-top {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-menu-btn .carbon-bar-bottom {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-menu-btn.menu-open .carbon-bar-top {
+  transform: translateY(4px) rotate(45deg);
+}
+
+#mobile-menu-btn.menu-open .carbon-bar-bottom {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+#mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+#mobile-menu.menu-open {
+  max-height: 520px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hairline Precision Borders */
+.hairline-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-r {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-l {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080809;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF7700;
+}
+
+/* ==========================================================================
+   UNDER-WEBPAGE INTERACTIVE BACKGROUND CANVAS
+   ========================================================================== */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main,
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Translucent surfaces so background illumination breathes underneath */
+section {
+  background-color: transparent !important;
+}
+
+.bg-noir {
+  background-color: rgba(8, 8, 9, 0.72) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bg-noir-100 {
+  background-color: rgba(17, 17, 19, 0.72) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bg-noir-200\/50 {
+  background-color: rgba(13, 13, 15, 0.45) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+footer {
+  background-color: rgba(5, 5, 6, 0.92) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* ==========================================================================
+   LIGHT MODE (MONACO ATELIER WHITE / HIGH-END HYPERCAR SPEC)
+   ========================================================================== */
+html:not(.dark) {
+  background-color: #F5F6F9 !important;
+  color: #121316 !important;
+}
+
+html:not(.dark) body {
+  background-color: #F5F6F9 !important;
+  color: #121316 !important;
+}
+
+/* Light Mode Navigation Bar */
+html:not(.dark) .transparent-nav {
+  background-color: rgba(245, 246, 249, 0.78) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .transparent-nav.scrolled {
+  background-color: rgba(245, 246, 249, 0.94) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07) !important;
+}
+
+html:not(.dark) #navbar span.text-white {
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) .nav-link {
+  color: #555760 !important;
+}
+
+html:not(.dark) .nav-link:hover,
+html:not(.dark) .nav-link.active {
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) .theme-toggle-btn {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) .theme-toggle-btn:hover {
+  border-color: #FF7700 !important;
+  color: #FF7700 !important;
+}
+
+html:not(.dark) #theme-icon-moon {
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) .theme-toggle-btn:hover #theme-icon-moon {
+  color: #FF7700 !important;
+}
+
+html:not(.dark) #mobile-theme-toggle-btn {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) #mobile-theme-toggle-btn:hover {
+  border-color: #FF7700 !important;
+  color: #FF7700 !important;
+}
+
+html:not(.dark) .inquire-btn {
+  color: #0A0A0C !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+html:not(.dark) #mobile-menu-btn {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) #mobile-menu {
+  background-color: rgba(245, 246, 249, 0.97) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .mobile-nav-link {
+  color: #2D2E35 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not(.dark) .mobile-nav-link:hover {
+  color: #000000 !important;
+}
+
+/* Light Mode Cards & Panels */
+html:not(.dark) .bg-noir,
+html:not(.dark) .bg-noir-50,
+html:not(.dark) .bg-noir-100 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .bg-noir-200\/50 {
+  background-color: rgba(238, 240, 245, 0.65) !important;
+}
+
+/* Light Mode Hairline Borders */
+html:not(.dark) .hairline-b,
+html:not(.dark) .hairline-t,
+html:not(.dark) .hairline-r,
+html:not(.dark) .hairline-l,
+html:not(.dark) .border-white\/5,
+html:not(.dark) .border-white\/10,
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/20,
+html:not(.dark) .border-white\/\[0\.06\],
+html:not(.dark) .border-white\/\[0\.08\] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) .divide-white\/\[0\.06\]>* {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) input[type="email"] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) input[type="email"]::placeholder {
+  color: #8C8E99 !important;
+}
+
+/* Light Mode Typography Hierarchy */
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) .text-white {
+  color: #0A0A0C !important;
+}
+
+html:not(.dark) .text-silver-200,
+html:not(.dark) .text-silver-300 {
+  color: #23242A !important;
+}
+
+html:not(.dark) .text-silver-400 {
+  color: #4B4D56 !important;
+}
+
+html:not(.dark) .text-silver-500 {
+  color: #6C6E79 !important;
+}
+
+/* Light Mode Footer */
+html:not(.dark) footer {
+  background-color: #EDEDF2 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #2D2E35 !important;
+}
+
+/* Light Mode Custom Scrollbar */
+html:not(.dark)::-webkit-scrollbar-track {
+  background: #F5F6F9;
+}
+
+html:not(.dark)::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+html:not(.dark)::-webkit-scrollbar-thumb:hover {
+  background: #FF7700;
+}
